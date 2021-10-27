@@ -28,7 +28,7 @@
 
     #historyLog {
       font-family: monospace;
-      font-size: 1.3em;
+      font-size: 1.5em;
       max-height: 400px;
       overflow-y: scroll;
     }
@@ -71,7 +71,7 @@
 
       <div class="field">
         <div class="control is-expanded">
-          <input class="input" id="expression" type="text" placeholder="2 + 2" v-model="expression"
+          <input class="input is-large" id="expression" type="text" placeholder="2 + 2" v-model="expression"
             v-on:keyup.enter="addToHistory"
             v-on:keyup.up="showLastExpression"
             v-on:keyup.down="clearExpression"
@@ -88,7 +88,7 @@
 
       <div class="field">
         <div class="control is-expanded">
-          <input class="input" type="text" placeholder="" v-model="result" disabled>
+          <input class="input is-large" type="text" placeholder="" v-model="result" disabled>
         </div>
       </div>
 
