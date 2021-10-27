@@ -6,10 +6,11 @@ A simple, text-based calculator to do quick arithmetic. Aims to be a simplified,
 
 ## Usage
 
-* Enter expressions and see the results without even hitting Enter.
+* Type an expression and see the results immediately.
 * In the expression field:
-    * Type up arrow to show the most recent expression.
-    * Type down arrow or Esc to clear the current expression.
+    * Type Enter to store the expression and result in the results history.
+    * Type the up arrow to show the most recent expression.
+    * Type the down arrow or Esc to clear the current expression.
     * Type an operator to use the previous answer (e.g. +2 will add 2 to the previous answer).
     * Type 'c' or hit the Clear button to clear all of the fields.
 
