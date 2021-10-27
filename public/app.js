@@ -31,6 +31,8 @@ new Vue({
   },
 
   mounted: function () {
+    document.getElementById('expression').focus();
+
     historyLog = document.getElementById('historyLog');
     lastHistoryLogScrollHeight = historyLog.scrollHeight;
   },
