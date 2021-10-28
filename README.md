@@ -1,20 +1,20 @@
 # Text-based calculator with history
 
-![](text-calculator-thumbnail.png)
-
 A simple, text-based calculator to do quick arithmetic. Aims to be a simplified, online version of [SpeedCrunch](https://speedcrunch.org/) or PowerToys PowerCalc.
+
+Try it out at [calc.danhersam.com](https://calc.danhersam.com/)
+
+![](text-calculator-thumbnail.png)
 
 ## Usage
 
-* Type an expression and see the results immediately.
+* Enter an expression and see the results as you type.
 * In the expression field:
-    * Type Enter to store the expression and result in the results history.
+    * Hit Enter to store the expression and result to the history.
     * Type the up arrow to show the most recent expression.
     * Type the down arrow or Esc to clear the current expression.
     * Type an operator to use the previous answer (e.g. +2 will add 2 to the previous answer).
     * Type 'c' or hit the Clear button to clear all of the fields.
-
-[Try it out here](https://calc.danhersam.com/).
 
 ## Credits
 
