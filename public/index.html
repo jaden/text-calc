@@ -27,9 +27,8 @@
     }
 
     #historyLog {
-      font-family: monospace;
       font-size: 1.5em;
-      max-height: 400px;
+      max-height: 60vh;
       overflow-y: auto;
       box-shadow: none;
       border: solid 1px #ccc;
@@ -52,28 +51,19 @@
 
       <h1 class="title">Text-based Calculator with History</h1>
 
-      <div class="field">
-        <label class="label is-uppercase">Result history</label>
-      </div>
-
-      <div class="field">
-        <div class="box" id="historyLog">
-          <div v-for="item in resultHistory">
-            <div>{{ item.expression }}</div>
-            <div>
-              <span class="has-text-dark">=</span>
-              <span class="has-text-link">{{ item.answer }}</span>
+      <div class="box" id="historyLog">
+        <div v-for="item in resultHistory">
+          <div>{{ item.expression }}</div>
+          <div>
+            <span class="has-text-dark">=</span>
+            <span class="has-text-link">{{ item.answer }}</span>
           </div>
         </div>
       </div>
 
-      <div class="field">
-        <label class="label is-uppercase">Enter an expression</label>
-      </div>
-
-      <div class="field">
-        <div class="control is-expanded">
-          <input class="input is-large" id="expression" type="text" placeholder="2 + 2" v-model="expression"
+      <div class="columns is-mobile is-vcentered">
+        <div class="control column is-6">
+          <input class="input is-large" id="expression" type="tel" placeholder="e.g. 2 + 2" v-model="expression"
             v-on:keyup.enter="addToHistory"
             v-on:keyup.up="showLastExpression"
             v-on:keyup.down="clearExpression"
@@ -82,15 +72,11 @@
             autofocus="autofocus"
           >
         </div>
-      </div>
 
-      <div class="field">
-        <label class="label is-uppercase">Current result</label>
-      </div>
+        <div class="column is-1 is-size-2">=</div>
 
-      <div class="field">
-        <div class="control is-expanded">
-          <input class="input is-large" type="text" placeholder="" v-model="result" disabled>
+        <div class="control column is-5">
+          <input class="input is-large" type="text" v-model="result" disabled>
         </div>
       </div>
 
