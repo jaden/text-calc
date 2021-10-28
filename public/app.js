@@ -6,7 +6,7 @@ function startsWithMathOperator(originalExpression) {
     return false;
   }
 
-  return operators.includes(expression[0]);
+  return operators.includes(expression);
 }
 
 function isValidAnswer(ans) {
