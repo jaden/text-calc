@@ -61,7 +61,7 @@
         </div>
       </div>
 
-      <div class="columns is-mobile is-vcentered">
+      <div class="columns is-vcentered">
         <div class="control column is-6">
           <input class="input is-large" id="expression" type="tel" placeholder="e.g. 2 + 2" v-model="expression"
             v-on:keyup.enter="addToHistory"
@@ -73,7 +73,7 @@
           >
         </div>
 
-        <div class="column is-1 is-size-2">=</div>
+        <div class="column is-1 is-size-2 is-hidden-mobile">=</div>
 
         <div class="control column is-5">
           <input class="input is-large" type="text" v-model="result" disabled>
