@@ -1,4 +1,4 @@
-function startsWithMathOperator(originalExpression) {
+function containsOnlyAMathOperator(originalExpression) {
   const operators = ['+', '-', '*', '/', '^', '!'];
   const expression = originalExpression.trim();
 
@@ -15,6 +15,24 @@ function isValidAnswer(ans) {
   }
 
   return true;
+}
+
+function getExpressionToEvaluate(expression, answer) {
+  let results = { expressionToEvaluate: expression, expression };
+
+  if (!isValidAnswer(answer)) {
+    return results;
+  }
+
+  if (containsOnlyAMathOperator(expression)) {
+    results.expression = `ans ${expression}`;
+  }
+
+  if (expression.indexOf('ans') !== -1) {
+    results.expressionToEvaluate = expression.replace('ans', answer);
+  }
+
+  return results;
 }
 
 let historyLog;
@@ -77,11 +95,11 @@ new Vue({
           return '';
         }
 
-        if (startsWithMathOperator(this.expression) && isValidAnswer(this.ans)) {
-          this.expression = `${this.ans} ${this.expression}`;
-        }
+        const expressionResults = getExpressionToEvaluate(this.expression, this.ans);
 
-        const answer = math.evaluate(this.expression);
+        this.expression = expressionResults.expression;
+
+        const answer = math.evaluate(expressionResults.expressionToEvaluate);
 
         if (answer !== undefined) {
           this.expressionHasError = false;
