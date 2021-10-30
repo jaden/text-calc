@@ -16,6 +16,7 @@ Try it out at [calc.danhersam.com](https://calc.danhersam.com/)
     * Type an operator to use the previous answer (e.g. +2 will add 2 to the previous answer).
     * Use `ans` to refer to the previous answer anywhere in an expression.
     * Type 'c' or hit the Clear button to clear all of the fields.
+    * Auto-load an expression in the URL, for example: `?e=1+2`
 
 ## Credits
 
