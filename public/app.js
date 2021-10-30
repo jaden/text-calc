@@ -50,7 +50,7 @@ new Vue({
 
   mounted: function () {
     if (document.location.search.startsWith('?e=')) {
-      this.expression = document.location.search.substr(3);
+      this.expression = decodeURIComponent(document.location.search.substr(3));
     }
 
     document.getElementById('expression').focus();
