@@ -26,12 +26,14 @@
       }
     }
 
-    #historyLog {
-      font-size: 1.5em;
-      max-height: 60vh;
-      overflow-y: auto;
+    .box {
       box-shadow: none;
       border: solid 1px #ccc;
+    }
+
+    #historyLog {
+      max-height: 60vh;
+      overflow-y: auto;
     }
 
     #historyLog > div:not(:first-child) {
@@ -51,7 +53,7 @@
 
       <h1 class="title">Text Calculator</h1>
 
-      <div class="box" id="historyLog">
+      <div class="box is-size-4" id="historyLog">
         <div v-for="item in resultHistory">
           <div>{{ item.expression }}</div>
           <div>
@@ -72,10 +74,11 @@
           >
         </div>
 
-        <div class="column is-1 is-size-2 is-hidden-mobile">=</div>
-
-        <div class="control column is-5">
-          <input class="input is-large" type="text" v-model="result" disabled>
+        <div class="control column is-6">
+          <div class="is-size-4">
+            <strong>=</strong>
+            {{ result }}
+          </div>
         </div>
       </div>
 
