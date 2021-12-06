@@ -40,9 +40,12 @@ function addCommasToNumber(n) {
     return '';
   }
 
-  const parts = n.toString().split(".");
-  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  return parts.join(".");
+  let parts = n.toString().split('.');
+  // \B - not a word boundary
+  // ?= - positive lookahead
+  // ?! - negative lookahead
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return parts.join('.');
 }
 
 let historyLog;
