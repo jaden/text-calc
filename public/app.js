@@ -35,6 +35,16 @@ function getExpressionToEvaluate(expression, answer) {
   return results;
 }
 
+function addCommasToNumber(n) {
+  if (typeof(n) === 'undefined' || n === '') {
+    return '';
+  }
+
+  const parts = n.toString().split(".");
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return parts.join(".");
+}
+
 let historyLog;
 let lastHistoryLogScrollHeight;
 
@@ -65,7 +75,7 @@ new Vue({
         return;
       }
 
-      this.resultHistory.push({ expression: this.expression, answer: this.result });
+      this.resultHistory.push({ expression: this.expression, answer: this.resultWithCommas });
       this.lastExpression = this.expression;
       this.ans = this.result;
       this.expression = '';
@@ -114,6 +124,10 @@ new Vue({
       } catch (err) {
         this.expressionHasError = true;
       }
+    },
+
+    resultWithCommas: function () {
+      return addCommasToNumber(this.result);
     },
   },
 
