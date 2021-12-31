@@ -63,7 +63,7 @@ new Vue({
 
   mounted: function () {
     if (document.location.search.startsWith('?e=')) {
-      this.expression = decodeURIComponent(document.location.search.substr(3));
+      this.expression = decodeURIComponent(document.location.search.substring(3));
     }
 
     document.getElementById('expression').focus();
@@ -118,15 +118,15 @@ new Vue({
 
         const answer = math.evaluate(expressionResults.expressionToEvaluate);
 
-        if (answer !== undefined) {
+        if (answer !== undefined && typeof(answer) !== 'function') {
           this.expressionHasError = false;
           return answer;
         }
-
-        return '';
       } catch (err) {
         this.expressionHasError = true;
       }
+
+      return '';
     },
 
     resultWithCommas: function () {

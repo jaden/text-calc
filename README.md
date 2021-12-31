@@ -15,8 +15,9 @@ Try it out at [calc.danhersam.com](https://calc.danhersam.com/)
     * Type the down arrow or Esc to clear the current expression.
     * Type an operator to use the previous answer (e.g. +2 will add 2 to the previous answer).
     * Use `ans` to refer to the previous answer anywhere in an expression.
-    * Type 'c' or hit the Clear button to clear all of the fields.
+    * Hit the Clear button to clear all of the fields.
     * Auto-load an expression in the URL, for example: `?e=1+2`
+    * Test some [functions](https://mathjs.org/docs/reference/functions.html) like `sqrt` or `cube`
 
 ## Credits
 
