@@ -116,7 +116,8 @@ new Vue({
 
         this.expression = expressionResults.expression;
 
-        const answer = math.evaluate(expressionResults.expressionToEvaluate);
+        const originalAnswer = math.evaluate(expressionResults.expressionToEvaluate);
+        const answer = math.format(originalAnswer, { precision: 14 }); // Prevent round-off errors in output
 
         if (answer !== undefined && typeof(answer) !== 'function') {
           this.expressionHasError = false;
