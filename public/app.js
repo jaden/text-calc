@@ -117,7 +117,10 @@ new Vue({
         this.expression = expressionResults.expression;
 
         const originalAnswer = math.evaluate(expressionResults.expressionToEvaluate);
-        const answer = math.format(originalAnswer, { precision: 14 }); // Prevent round-off errors in output
+        const answer = math.format(originalAnswer, {
+          precision: 14, // Prevent round-off errors in output
+          upperExp: 12, // Exponent at which to start using scientific notation
+        });
 
         if (answer !== undefined && typeof(answer) !== 'function') {
           this.expressionHasError = false;
