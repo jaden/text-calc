@@ -81,9 +81,8 @@ new Vue({
 
       this.resultHistory.push({ expression: this.expression, answer: this.resultWithCommas });
       this.expressionHistory.push(this.expression);
-      this.clearExpression();
-
       this.ans = this.result;
+      this.clearExpression(); // only clear after ans is set, because this.result will return blank otherwise
     },
 
     showPreviousExpression: function () {
