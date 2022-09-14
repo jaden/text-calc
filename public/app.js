@@ -55,7 +55,8 @@ new Vue({
   el: '#app',
   data: {
     expression: '',
-    lastExpression: '',
+    expressionHistory: [],
+    expressionHistoryIndex: null,
     ans: '',
     resultHistory: [],
     expressionHasError: false,
@@ -79,26 +80,58 @@ new Vue({
       }
 
       this.resultHistory.push({ expression: this.expression, answer: this.resultWithCommas });
-      this.lastExpression = this.expression;
+      this.expressionHistory.push(this.expression);
+      this.clearExpression();
+
       this.ans = this.result;
-      this.expression = '';
     },
 
-    showLastExpression: function () {
-      if (this.lastExpression === '') {
+    showPreviousExpression: function () {
+      if (this.expressionHistory.length === 0) {
         return;
       }
 
-      this.expression = this.lastExpression;
+      // Initialize the history index to point to the most recent item.
+      if (this.expressionHistoryIndex === null) {
+        this.expressionHistoryIndex = this.expressionHistory.length;
+      }
+
+      // Only decrement if we're not already at the oldest item.
+      if (this.expressionHistoryIndex > 0) {
+        this.expressionHistoryIndex--;
+      }
+
+      this.expression = this.expressionHistory[this.expressionHistoryIndex];
+    },
+
+    showNextExpression: function () {
+      if (this.expressionHistory.length === 0 || this.expressionHistoryIndex === null) {
+        return;
+      }
+
+      // Clear the expression when we're already at the most recent expression
+      if (this.expressionHistoryIndex === this.expressionHistory.length - 1) {
+        this.clearExpression();
+        return;
+      }
+
+      // Only move the index if we're not already at the end of the history
+      if (this.expressionHistoryIndex < this.expressionHistory.length - 1) {
+        this.expressionHistoryIndex++;
+      }
+
+      this.expression = this.expressionHistory[this.expressionHistoryIndex];
     },
 
     clearExpression: function () {
       this.expression = '';
+      this.expressionHistoryIndex = null;
     },
 
     clearAll: function () {
-      this.expression = '';
+      this.clearExpression();
       this.resultHistory = [];
+      this.expressionHistory = [];
       this.ans = '';
 
       document.getElementById('expression').focus();

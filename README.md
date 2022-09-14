@@ -11,8 +11,9 @@ Try it out at [calc.danhersam.com](https://calc.danhersam.com/)
 * Enter an expression and see the results as you type.
 * In the expression field:
     * Hit Enter to store the expression and result to the history.
-    * Type the up arrow to show the most recent expression.
-    * Type the down arrow or Esc to clear the current expression.
+    * Hit the up arrow to view previous expressions.
+    * Hit the down arrow to view more recent expressions.
+    * Hit Esc to clear the current expression.
     * Type an operator to use the previous answer (e.g. +2 will add 2 to the previous answer).
     * Use `ans` to refer to the previous answer anywhere in an expression.
     * Hit the Clear button to clear all fields.
