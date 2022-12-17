@@ -66,7 +66,7 @@
 
       <h1 class="title">Text Calculator</h1>
 
-      <div class="box is-size-4" id="historyLog">
+      <div class="box is-size-4" id="historyLog" v-show="resultHistory.length > 0">
         <div v-for="item in resultHistory">
           <div>{{ item.expression }}</div>
           <div>
