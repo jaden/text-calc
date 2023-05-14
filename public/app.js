@@ -51,15 +51,16 @@ function addCommasToNumber(n) {
 let historyLog;
 let lastHistoryLogScrollHeight;
 
-new Vue({
-  el: '#app',
-  data: {
-    expression: '',
-    expressionHistory: [],
-    expressionHistoryIndex: null,
-    ans: '',
-    resultHistory: [],
-    expressionHasError: false,
+const app = Vue.createApp({
+  data() {
+    return {
+      expression: '',
+      expressionHistory: [],
+      expressionHistoryIndex: null,
+      ans: '',
+      resultHistory: [],
+      expressionHasError: false,
+    };
   },
 
   mounted: function () {
@@ -182,3 +183,5 @@ new Vue({
     });
   },
 });
+
+app.mount('#app');
