@@ -78,7 +78,7 @@
 
       <div class="columns is-vcentered">
         <div class="control column is-6">
-          <input class="input is-large" id="expression" type="text" autofocus placeholder="e.g. 2 + 2" v-model="expression"
+          <input class="input is-large" id="expression" type="text" autocapitalize="off" autofocus placeholder="e.g. 2 + 2" v-model="expression"
             v-on:keyup.enter="addToHistory"
             v-on:keyup.up="showPreviousExpression"
             v-on:keyup.down="showNextExpression"
