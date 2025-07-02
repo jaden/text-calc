@@ -145,8 +145,11 @@ const app = Vue.createApp({
           return '';
         }
 
-        // Remove commas (math library can't calculate with them)
-        this.expression = this.expression.replaceAll(',', '');
+        // Remove commas (math library can't calculate with them) only if digits are numeric
+        // Must allow expressions like pow(2, 3)
+        if (/^[\d,]+$/.test(this.expression)) {
+          this.expression = this.expression.replaceAll(',', '');
+        }
 
         const expressionResults = getExpressionToEvaluate(this.expression, this.ans);
 
