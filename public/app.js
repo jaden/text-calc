@@ -151,6 +151,11 @@ const app = Vue.createApp({
           this.expression = this.expression.replaceAll(',', '');
         }
 
+        // Remove dollar signs
+        if (this.expression.includes('$')) {
+          this.expression = this.expression.replaceAll('$', '');
+        }
+
         const expressionResults = getExpressionToEvaluate(this.expression, this.ans);
 
         this.expression = expressionResults.expression;
